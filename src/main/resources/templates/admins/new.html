@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>New</title>
+</head>
+<body>
+<form th:method="GET" th:action="@{/logout}">
+  <input type="submit" value="Logout">
+</form>
+<br>
+<form th:method="POST" th:action="@{/admin}" th:object="${user}">
+  <label for="email">Email</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <input type="email" th:field="*{email}" id="email" size="100">
+  <br><br>
+  <label for="first_name">Имя</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <input type="text" th:field="*{first_name}" id="first_name" size="100">
+  <br><br>
+  <label for="last_name">Фамилия</label>&nbsp;
+  <input type="text" th:field="*{last_name}" id="last_name" size="100">
+  <br><br>
+  <label for="dob">Дата рождения</label>&nbsp;&nbsp;&nbsp;
+  <input th:type="date" th:field="*{dob}" id="dob" size="100">
+  <br><br>
+  <label for="password">Пароль</label>&nbsp;&nbsp;&nbsp;&nbsp;
+  <input type="text" th:field="*{password}" id="password" size="100">
+  <br><br>
+  Enabled <input type="checkbox"  th:field="*{enabled}"/>
+  <br><br>
+  User    <input type="checkbox" th:value="ROLE_USER" th:name="role" />
+  <br>
+  Admin   <input type="checkbox" th:value="ROLE_ADMIN" th:name="role" />
+  <br><br>
+  <input type="submit" value="Создать пользователя">
+</form>
+</body>
+</html>
